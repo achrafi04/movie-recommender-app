@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Recommended Movies for {{ username }}</h2>
+{% if recommendations %}
+<ul>
+    {% for movie in recommendations %}
+    <li>
+        <h3>{{ movie.names }}</h3>
+        <p><strong>Genre:</strong> {{ movie.genre }}</p>
+        <p><strong>Overview:</strong> {{ movie.overview }}</p>
+        <p><strong>Score:</strong> {{ movie.score }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No recommendations available at the moment. Try searching for a different movie.</p>
+{% endif %}
+<a href="{{ url_for('home') }}">Back to Home</a>
+{% endblock %}
